@@ -1,49 +1,46 @@
-import { Text, View } from "@/components/Themed";
-import "nativewind";
+import { Link, router } from "expo-router";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Image, Pressable, StatusBar, StyleSheet } from "react-native";
-import { Link } from "expo-router";
-export default function Dashboard() {
+
+const WelcomePage = () => {
   return (
-    <>
-      <StatusBar backgroundColor="#FFEAF1" barStyle="dark-content" />
-      <SafeAreaView className="bg-[#FFEAF1] flex-1 container p-6 py-10 gap-6">
-        <View className="flex flex-row justify-between gap-3 items-center p-4">
-          <View className="aspect-square w-12 rounded-full">
+    <SafeAreaView className="flex h-full items-center justify-center p-8 py-28">
+      <View className="flex h-full justify-between">
+        <View className="flex gap-2">
+          <View className="aspect-square w-full rounded-full py-3">
             <Image
-              className="aspect-square h-10"
-              source={require("@/assets/images/ava.png")}
+              className="aspect-square h-full"
+              source={require("@/assets/images/moms-holding-fruits.png")}
             />
           </View>
-          <View className="flex-1 flex-col text-white">
-            <Text className="text-white font-semibold">Hello, Putri sari</Text>
-            <Text className="text-white font-medium">
-              18 Januari 2024 | kamis
-            </Text>
-          </View>
-          <View>
-            <Pressable className="bg-white rounded-xl">
-              <Image
-                className="aspect-square h-10"
-                source={require("@/assets/images/alarm.png")}
-              />
-            </Pressable>
-          </View>
+          <Text className="font-semibold text-2xl">
+            Solusi Nutrisi Terpecaya Untuk Anak!
+          </Text>
+          <Text className="text-sm">
+            NutriWise memudahkan ibu hamil dan pengasuh dalam merencanakan
+            makanan bergizi untuk anak.
+          </Text>
         </View>
-        <Link className="bg-white p-4 rounded-2xl py-6" href="/nutriWise">
-          <View>
-            <Text className="text-white font-semibold text-2xl">
-              nutri wise
-            </Text>
-            <View className="flex flex-row">
-              <Text>a</Text>
-              <Text>a</Text>
-              <Text>a</Text>
-              <Text>a</Text>
-            </View>
-          </View>
-        </Link>
-      </SafeAreaView>
-    </>
+        <View className="flex-row flex justify-between">
+          {/* <TouchableOpacity
+            onPress={() => {
+              router.replace("/welcome");
+            }}
+          >
+            <Text> Lewati </Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity
+            onPress={() => {
+              router.replace("/(tabs)/nutriWise");
+            }}
+            className="bg-darkPink aspect-square h-12 justify-center"
+          >
+            <Text className="text-center font-bold color-white"> - </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   );
-}
+};
+
+export default WelcomePage;
