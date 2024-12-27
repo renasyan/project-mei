@@ -1,62 +1,47 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import "react-native-reanimated";
+import { router, Slot, useSegments } from "expo-router";
+import { View } from "react-native";
+import { AuthProvider, useAuth } from "./ctx";
 import "../global.css";
+import React, { useEffect } from "react";
 
-import { useColorScheme } from "@/components/useColorScheme";
+const MainLayout = () => {
+  const { isAuthenticated } = useAuth();
+  const segments = useSegments();
+  console.log("1");
+  //check if user authenticated
+  //   useEffect(() => {
+  //     if (typeof isAuthenticated === "undefined") return;
+  //     if (!isAuthenticated && segments[0] !== "(auth)") {
+  //       console.log("2");
+  //       router.replace("/(main)/(tabs)");
+  //     } else if (isAuthenticated == false) {
+  //       console.log("3");
+  //       router.replace("/SignIn");
+  //     }
+  //   }, [isAuthenticated]);
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from "expo-router";
+  useEffect(() => {
+    console.log("isAuthenticated:", isAuthenticated);
+    if (typeof isAuthenticated === "undefined") return;
 
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+    if (!isAuthenticated) {
+      // Jika belum autentikasi, arahkan ke SignIn
+      console.log("berhasil login");
+      router.replace("/(auth)/onboard");
+    } else {
+      // Jika sudah autentikasi, arahkan ke tab utama
+      console.log("berhasil login");
+      router.replace("/(main)/(tabs)");
+    }
+  }, [isAuthenticated]);
+
+  return <Slot />;
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
-    ...FontAwesome.font,
-  });
-
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <Stack screenOptions={{ headerShown: false, headerTintColor: "#D1235E" }}>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="+not-found" />
-    </Stack>
+    <AuthProvider>
+      <MainLayout />
+    </AuthProvider>
   );
 }

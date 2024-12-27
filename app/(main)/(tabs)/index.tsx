@@ -3,11 +3,13 @@ import "nativewind";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image, Pressable, StatusBar, StyleSheet } from "react-native";
 import { Link } from "expo-router";
+import React from "react";
 export default function Dashboard() {
+  console.log("Dashboard");
   return (
     <>
-      <StatusBar backgroundColor="#FFEAF1" barStyle="dark-content" />
-      <SafeAreaView className="bg-[#FFEAF1] flex-1 container p-6 py-10 gap-6">
+      <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content" />
+      <SafeAreaView className="bg-[#FAFAFA] flex-1 container p-6 py-10 gap-6">
         <View className="flex flex-row justify-between gap-3 items-center p-4">
           <View className="aspect-square w-12 rounded-full">
             <Image
@@ -22,7 +24,7 @@ export default function Dashboard() {
             </Text>
           </View>
           <View>
-            <Pressable className="bg-white rounded-xl">
+            <Pressable className="#CAF0F8">
               <Image
                 className="aspect-square h-10"
                 source={require("@/assets/images/alarm.png")}
@@ -30,16 +32,21 @@ export default function Dashboard() {
             </Pressable>
           </View>
         </View>
-        <Link className="bg-white p-4 rounded-2xl py-6" href="/nutriWise">
+        <Link
+          className="bg-white p-4 rounded-2xl py-6"
+          href="/nutriWise"
+          style={{ backgroundColor: "#CAF0F8" }}
+        >
+          <Text className="text-white font-semibold text-2xl">nutri wise</Text>
           <View>
-            <Text className="text-white font-semibold text-2xl">
-              nutri wise
-            </Text>
             <View className="flex flex-row">
               <Text>a</Text>
               <Text>a</Text>
               <Text>a</Text>
               <Text>a</Text>
+              <Link href="./auth/onboard">
+                <Text>mmm</Text>
+              </Link>
             </View>
           </View>
         </Link>
