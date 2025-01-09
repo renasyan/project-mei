@@ -69,9 +69,9 @@ const loginPage = () => {
             <Text>{isPasswordVisible ? "👁️" : "👁️"}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity className="flex bg-black">
+        <TouchableOpacity className="flex">
           <Text
-            className="text-xs"
+            className="text-xs "
             style={{
               textAlign: "right",
               color: "#00B4D8",
@@ -79,6 +79,28 @@ const loginPage = () => {
           >
             Lupa Password?
           </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          // onPress={form.handleSubmit(onSubmit)}
+          className="bg-baseColor p-4 rounded-2xl"
+          style={{ marginTop: 40, backgroundColor: "#00B4D8" }}
+        >
+          <Text className="text-white text-center text-base font-medium">
+            Masuk
+          </Text>
+        </TouchableOpacity>
+        <View className="bg-baseColor p-4 rounded-2xl">
+          <TouchableOpacity
+            // onPress={form.handleSubmit(onSubmit)}
+            style={{ marginTop: 40, backgroundColor: "#00B4D8" }}
+          >
+            <Text className="text-white text-center text-base font-medium">
+              Masuk
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity>
+          <Text className="text-center">atau masuk dengan</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
