@@ -11,32 +11,29 @@ export interface Slide {
 export const slides: Slide[] = [
   {
     id: "1",
-    title: "Solusi Nutrisi Terpecaya Untuk Anak!",
-    highlight: "Anak!",
-    highlightIndexStart: 4,
-    highlightIndexEnd: 4,
-    description:
-      "NutriWise memudahkan ibu hamil dan pengasuh dalam merencanakan makanan bergizi untuk anak.",
+    title: "Awali Dengan Langkah Kecil Untuk Perubahan Besar",
+    highlight: "Besar",
+    highlightIndexStart: 6,
+    highlightIndexEnd: 6,
+    description: "Loremp Issume ajsbdasd ajsdbasdna sdasda sdasndbansbdbasdasd",
     image: require("../../assets/images/onboarding/onboarding-1.png"),
   },
   {
     id: "2",
-    title: "Mendukung Kesehatan Mental Ibu!",
-    highlight: "Kesehatan Mental",
+    title: "Loremp Issump",
+    highlight: "Issump",
     highlightIndexStart: 1,
     highlightIndexEnd: 2,
-    description:
-      "Temukan ketenangan dalam setiap langkah dengan WiseGuard, panduan dan dukungan kesehatan mental bagi ibu.",
+    description: "Loremp Issume ajsbdasd ajsdbasdna sdasda sdasndbansbdbasdasd",
     image: require("../../assets/images/onboarding/onboarding-2.png"),
   },
   {
     id: "3",
-    title: "Semua ada dalam satu genggaman!",
-    highlight: "satu",
+    title: "Loremp Issump",
+    highlight: "Issump",
     highlightIndexStart: 3,
     highlightIndexEnd: 3,
-    description:
-      "Dengan ragam fitur Little Steps, setiap langkah perjalanan sebagai orang tua akan terasa lebih mudah.",
+    description: "Loremp Issume ajsbdasd ajsdbasdna sdasda sdasndbansbdbasdasd",
     image: require("../../assets/images/onboarding/onboarding-3.png"),
   },
 ];

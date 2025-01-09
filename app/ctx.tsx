@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // Simulasikan autentikasi selesai setelah beberapa waktu
     setTimeout(() => {
-      setIsAuthenticating(true); // Atur isAuthenticated
+      setIsAuthenticating(false); // Atur isAuthenticated
     }, 1000);
   }, []);
 
