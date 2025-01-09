@@ -48,7 +48,7 @@ const WelcomePage = () => {
       slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
     } else {
       console.log("Daftar awokawok");
-      router.replace("/(auth)/login");
+      router.push("/(auth)/login");
     }
   };
   return (
